@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-sky-50 via-white to-sky-50 text-slate-800 min-h-screen;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Travel-agent serif accents for headings */
+  h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.sky.300') transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 5px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-sky-300 rounded-full;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  /* Soft sky shadow for cards */
+  .shadow-sky-soft {
+    box-shadow: 0 1px 3px 0 rgb(14 165 233 / 0.08), 0 1px 2px -1px rgb(14 165 233 / 0.06);
+  }
+  .shadow-sky-card {
+    box-shadow: 0 4px 12px -2px rgb(14 165 233 / 0.10), 0 2px 4px -2px rgb(14 165 233 / 0.06);
+  }
+  .shadow-sky-glow {
+    box-shadow: 0 8px 24px -4px rgb(14 165 233 / 0.18), 0 4px 8px -2px rgb(14 165 233 / 0.10);
+  }
+}
+
+@layer components {
+  .prose-travel {
+    @apply text-slate-800;
+  }
+
+  .prose-travel h1 {
+    @apply font-serif text-xl text-slate-900 mt-1 mb-3 leading-tight;
+  }
+  .prose-travel h1:first-child {
+    @apply mt-0;
+  }
+  .prose-travel h2 {
+    @apply font-serif text-lg text-slate-900 mt-5 mb-2 leading-tight;
+  }
+  .prose-travel h3 {
+    @apply font-semibold text-sm text-sky-700 mt-4 mb-1.5 uppercase tracking-wide;
+  }
+
+  .prose-travel p {
+    @apply my-2.5 leading-relaxed;
+  }
+  .prose-travel p:first-child {
+    @apply mt-0;
+  }
+  .prose-travel p:last-child {
+    @apply mb-0;
+  }
+
+  .prose-travel strong {
+    @apply font-semibold text-slate-900;
+  }
+  .prose-travel em {
+    @apply italic text-slate-700;
+  }
+
+  .prose-travel ul, .prose-travel ol {
+    @apply my-2.5 pl-5 space-y-1;
+  }
+  .prose-travel ul {
+    @apply list-disc marker:text-sky-400;
+  }
+  .prose-travel ol {
+    @apply list-decimal marker:text-sky-500;
+  }
+  .prose-travel li {
+    @apply leading-relaxed;
+  }
+
+  .prose-travel hr {
+    @apply my-5 border-sky-100;
+  }
+
+  .prose-travel a {
+    @apply text-sky-600 hover:text-sky-700 underline underline-offset-2;
+  }
+
+  .prose-travel code {
+    @apply bg-sky-50 text-sky-800 px-1.5 py-0.5 rounded text-[0.85em] font-mono;
+  }
+
+  .prose-travel blockquote {
+    @apply border-l-2 border-sky-300 pl-4 italic text-slate-600 my-3;
+  }
+
+  .prose-travel table {
+    @apply my-4 w-full border-collapse text-xs;
+  }
+  .prose-travel thead {
+    @apply border-b-2 border-sky-200;
+  }
+  .prose-travel th {
+    @apply text-left font-semibold text-sky-700 px-3 py-2;
+  }
+  .prose-travel tbody tr {
+    @apply border-b border-sky-100 last:border-0;
+  }
+  .prose-travel td {
+    @apply px-3 py-2 text-slate-700;
+  }
+}
