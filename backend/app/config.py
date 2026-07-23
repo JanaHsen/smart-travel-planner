@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     jwt_algorithm: str = "HS256"
     jwt_expiry_hours: int = 24
     cheap_model: str = "claude-haiku-4-5-20251001"
-    strong_model: str = "claude-sonnet-4-6"
+    strong_model: str = "claude-sonnet-5"
     embedding_model: str = "all-MiniLM-L6-v2"
     weather_url: str = "https://api.open-meteo.com/v1/forecast"
     weather_cache_ttl: int = 600
