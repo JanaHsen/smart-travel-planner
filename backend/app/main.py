@@ -73,13 +73,22 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(title="Smart Travel Planner", lifespan=lifespan)
 
+# Always allow local dev; append any extra origins (e.g. the deployed frontend)
+# from the CORS_ORIGINS env var (comma-separated).
+_allowed_origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:5173",
+]
+_allowed_origins += [
+    origin.strip()
+    for origin in get_settings().cors_origins.split(",")
+    if origin.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://localhost:3001",
-        "http://localhost:5173",
-    ],
+    allow_origins=_allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

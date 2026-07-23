@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     weather_url: str = "https://api.open-meteo.com/v1/forecast"
     weather_cache_ttl: int = 600
     discord_webhook_url: str = ""
+    # Comma-separated list of extra allowed browser origins (e.g. the deployed
+    # frontend URL). localhost dev origins are always allowed.
+    cors_origins: str = ""
 
 
 @lru_cache(maxsize=1)
